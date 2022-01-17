@@ -1,0 +1,11 @@
+.cart {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cart span {
+  margin-left: 1rem;
+  text-align: right;
+}

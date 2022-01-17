@@ -1,6 +1,5 @@
 import styles from "./NavBar.module.css";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-
+import CartWidget from "./CartWidget";
 const NavBar = () => {
   return (
     <nav className={styles.nav}>
@@ -13,10 +12,7 @@ const NavBar = () => {
         <li>Accessories</li>
         <li>Shoes</li>
       </ul>
-      <div className={styles.cart}>
-        <AiOutlineShoppingCart />
-        <span>0</span>
-      </div>
+      <CartWidget />
     </nav>
   );
 };
