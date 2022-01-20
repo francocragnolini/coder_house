@@ -1,8 +1,8 @@
 import Item from "./Item";
-
+import classes from "./ItemList.module.css";
 const ItemList = (props) => {
   return (
-    <ul>
+    <ul className={classes.productsList}>
       {props.items.map((item) => (
         <Item
           key={item.id}
@@ -10,8 +10,8 @@ const ItemList = (props) => {
           image={item.image}
           description={item.description}
           price={item.price}
-          stock={props.stock}
-          initial={props.initial}
+          stock={item.stock}
+          initial={item.initial}
         />
       ))}
     </ul>
