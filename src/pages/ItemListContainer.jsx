@@ -44,8 +44,7 @@ const ItemListContainer = (props) => {
 
   return (
     <div className={classes["item-list-container"]}>
-      {props.greeting}
-      <ItemCount initial={DUMMY_DATA[0].initial} stock={DUMMY_DATA[0].stock} />
+      {/* <ItemCount initial={DUMMY_DATA[0].initial} stock={DUMMY_DATA[0].stock} /> */}
       <ItemList items={products} />
     </div>
   );
