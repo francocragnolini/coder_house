@@ -9,7 +9,7 @@ const DUMMY_ITEM = {
   image:
     "https://images.pexels.com/photos/4914807/pexels-photo-4914807.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   price: 200,
-  initial: 2,
+  initial: 1,
   stock: 5,
 };
 
@@ -19,7 +19,6 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const getItem = setTimeout(() => {
       setItemDetail(DUMMY_ITEM);
-      console.log("loading....");
     }, 2000);
 
     return () => clearTimeout(getItem);
@@ -34,6 +33,8 @@ const ItemDetailContainer = () => {
             price={DUMMY_ITEM.price}
             title={DUMMY_ITEM.name}
             image={DUMMY_ITEM.image}
+            initial={DUMMY_ITEM.initial}
+            stock={DUMMY_ITEM.stock}
           />
         )}
     </div>

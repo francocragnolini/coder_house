@@ -6,7 +6,7 @@ const ItemCount = (props) => {
   const [count, setCount] = useState(props.initial);
 
   //  Handlers
-  const operation = (operator) => {
+  const countHandler = (operator) => {
     if (operator === "-" && count > 1) {
       setCount(count - 1);
     }
@@ -15,16 +15,13 @@ const ItemCount = (props) => {
     }
   };
 
-  const addHandler = () => {
-    alert("Hello World");
-  };
   return (
     <div className={classes.itemCount}>
-      <button type="button" onClick={() => operation("-")}>
+      <button type="button" onClick={() => countHandler("-")}>
         -
       </button>
       <span>{count}</span>
-      <button type="button" onClick={() => operation("+")}>
+      <button type="button" onClick={() => countHandler("+")}>
         +
       </button>
     </div>

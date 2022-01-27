@@ -1,3 +1,4 @@
+import ItemCount from "./ItemCount";
 import classes from "./ItemDetail.module.css";
 
 const ItemDetail = (props) => {
@@ -10,6 +11,7 @@ const ItemDetail = (props) => {
         <h2>{props.title}</h2>
         <div>{props.description}</div>
         <h3>${props.price}</h3>
+        <ItemCount initial={props.initial} stock={props.stock} />
       </div>
     </div>
   );

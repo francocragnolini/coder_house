@@ -3,12 +3,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 5rem;
-  background-color: #8a2b06;
+  height: 7rem;
+  background-color: rgba(206, 206, 29, 0.959);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 5%;
   z-index: 10;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
@@ -20,12 +20,19 @@
 }
 
 .logo {
+  width: 5rem;
+  height: 5rem;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
+.logo img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+}
 .nav .list {
   display: none;
   list-style: none;
@@ -34,6 +41,11 @@
 .list li {
   margin: 0 1rem;
   cursor: pointer;
+}
+
+.list li:last-child {
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media screen and (min-width: 768px) {

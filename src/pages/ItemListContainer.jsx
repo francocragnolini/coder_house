@@ -1,5 +1,4 @@
 import classes from "./ItemListContainer.module.css";
-import ItemCount from "../components/ItemCount";
 import ItemList from "../components/ItemList";
 import { useState, useEffect } from "react";
 
@@ -17,6 +16,66 @@ const DUMMY_DATA = [
   },
   {
     id: "p2",
+    name: "Sneakers",
+    description: "Nike Air Force",
+    image:
+      "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    price: 300,
+    initial: 2,
+    stock: 5,
+  },
+  {
+    id: "p3",
+    name: "Sneakers",
+    description: "Nike Air Force",
+    image:
+      "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    price: 300,
+    initial: 2,
+    stock: 5,
+  },
+  {
+    id: "p4",
+    name: "Sneakers",
+    description: "Nike Air Force",
+    image:
+      "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    price: 300,
+    initial: 2,
+    stock: 5,
+  },
+  {
+    id: "p5",
+    name: "Sneakers",
+    description: "Nike Air Force",
+    image:
+      "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    price: 300,
+    initial: 2,
+    stock: 5,
+  },
+  {
+    id: "p6",
+    name: "Sneakers",
+    description: "Nike Air Force",
+    image:
+      "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    price: 300,
+    initial: 2,
+    stock: 5,
+  },
+  {
+    id: "p7",
+    name: "Sneakers",
+    description: "Nike Air Force",
+    image:
+      "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    price: 300,
+    initial: 2,
+    stock: 5,
+  },
+  {
+    id: "p8",
     name: "Sneakers",
     description: "Nike Air Force",
     image:
