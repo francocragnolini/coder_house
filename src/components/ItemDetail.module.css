@@ -1,15 +1,21 @@
 .itemDetail {
   width: 100%;
+  height: 100%;
   color: black;
   display: flex;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 2rem;
 }
 
-.image img {
+.image {
   width: 100%;
   height: 70%;
+}
+.image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .info {
