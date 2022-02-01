@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import ItemDetailContainer from "./pages/ItemDetailContainer";
 import ItemListContainer from "./pages/ItemListContainer";
+import CartContainer from "./pages/CartContainer";
 import "./App.css";
+
 function App() {
   return (
     <div className="App">
@@ -17,6 +19,9 @@ function App() {
           </Route>
           <Route path="/item/:id">
             <ItemDetailContainer />
+          </Route>
+          <Route path="/cart">
+            <CartContainer />
           </Route>
         </Switch>
       </Router>

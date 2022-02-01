@@ -26,6 +26,17 @@
   align-items: flex-start;
   justify-content: space-around;
 }
+.info .button {
+  margin-top: 2rem;
+  padding: 0 2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: grey;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+}
 
 @media screen and (min-width: 768px) {
   .itemDetail {
