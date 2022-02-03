@@ -10,12 +10,14 @@ const ItemDetail = (props) => {
 
   // cart context
   // handler takes the count state in itemCount component and save the value to quantity state
+  // not working correctly
   const addQuantityHandler = (q) => {
     console.log(q);
     setQuantity(q);
   };
 
   //WORKING WITH CONTEXT
+  //pushes the item data  to cartCtx.items(array)
   const addToCartHandler = (e) => {
     e.preventDefault();
     props.onAdd({
@@ -24,6 +26,8 @@ const ItemDetail = (props) => {
       image: props.image,
       description: props.description,
       price: props.price,
+      // set the amount to the quantity state(quantity should have the same value as Count)
+      // not working
       amount: quantity,
     });
     history.replace("/cart");
