@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import CartWidget from "./CartWidget";
 
-const links = [{ title: "Shirts" }, { title: "Sneakers" }, { title: "Coats" }];
 const NavBar = () => {
   return (
     <nav className={styles.nav}>
@@ -27,7 +26,10 @@ const NavBar = () => {
           <NavLink to={`/category/categoryId`}>Shoes</NavLink>
         </li>
         <li>
-          <CartWidget />
+          {}
+          <NavLink to="/cart">
+            <CartWidget />
+          </NavLink>
         </li>
       </ul>
     </nav>

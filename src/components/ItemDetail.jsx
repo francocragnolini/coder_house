@@ -9,9 +9,9 @@ const ItemDetail = (props) => {
   const history = useHistory();
 
   // cart context
-
   // handler takes the count state in itemCount component and save the value to quantity state
   const addQuantityHandler = (q) => {
+    console.log(q);
     setQuantity(q);
   };
 
@@ -26,7 +26,7 @@ const ItemDetail = (props) => {
       price: props.price,
       amount: quantity,
     });
-    // history.replace("/cart");
+    history.replace("/cart");
   };
 
   return (

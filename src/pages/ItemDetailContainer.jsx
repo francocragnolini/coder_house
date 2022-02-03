@@ -9,6 +9,7 @@ const DUMMY_ITEM = {
   id: "p1",
   name: "Sneakers",
   description: "Best Sneakers in Town",
+  // PROBLEM FOUND IM * 0 so the result is = 0
   amount: 0,
   image:
     "https://images.pexels.com/photos/4914807/pexels-photo-4914807.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",

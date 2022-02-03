@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import ItemDetailContainer from "./pages/ItemDetailContainer";
 import ItemListContainer from "./pages/ItemListContainer";
-import CartContainer from "./pages/CartContainer";
+import CartListContainer from "./pages/CartListContainer";
 import { CartContext } from "./context/CartContext";
 import "./App.css";
 import { useContext } from "react";
@@ -25,7 +25,7 @@ function App() {
             <ItemDetailContainer />
           </Route>
           <Route path="/cart">
-            <CartContainer />
+            <CartListContainer />
           </Route>
         </Switch>
       </Router>
