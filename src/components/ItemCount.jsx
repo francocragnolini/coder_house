@@ -8,12 +8,15 @@ const ItemCount = (props) => {
 
   //  Handlers
   const countHandler = (operator) => {
-    if (operator === "-" && count > 1) {
-      setCount((prevValue) => prevValue - 1);
+    if (operator === "-" && count > props.initial) {
+      // setCount((prevValue) => prevValue - 1);
+      setCount(count - 1);
     }
     if (operator === "+" && count < props.stock) {
-      setCount((prevValue) => prevValue + 1);
+      // setCount((prevValue) => prevValue + 1);
+      setCount(count + 1);
     }
+
     onAdd(count);
   };
 

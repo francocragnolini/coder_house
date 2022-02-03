@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import CartItem from "../components/CartItem";
 
 const CartContainer = () => {
+  const cartCtx = useContext(CartContext);
+
   return (
-    <h2 style={{ marginTop: "300px", color: "blueviolet" }}>
-      Cart page: items added to the cart
-    </h2>
+    <div style={{ color: "black", marginTop: "200px" }}>
+      {cartCtx.items.map((item) => (
+        <CartItem key={item.id} item={item} />
+      ))}
+    </div>
   );
 };
 

@@ -12,6 +12,7 @@ const DUMMY_DATA = [
       "https://images.pexels.com/photos/4914807/pexels-photo-4914807.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 200,
     initial: 2,
+    amount: 0,
     stock: 5,
   },
   {
@@ -22,6 +23,7 @@ const DUMMY_DATA = [
       "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 300,
     initial: 2,
+    amount: 0,
     stock: 5,
   },
   {
@@ -32,6 +34,7 @@ const DUMMY_DATA = [
       "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 300,
     initial: 2,
+    amount: 0,
     stock: 5,
   },
   {
@@ -42,6 +45,7 @@ const DUMMY_DATA = [
       "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 300,
     initial: 2,
+    amount: 0,
     stock: 5,
   },
   {
@@ -52,6 +56,7 @@ const DUMMY_DATA = [
       "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 300,
     initial: 2,
+    amount: 0,
     stock: 5,
   },
   {
@@ -62,6 +67,7 @@ const DUMMY_DATA = [
       "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 300,
     initial: 2,
+    amount: 0,
     stock: 5,
   },
   {
@@ -72,6 +78,7 @@ const DUMMY_DATA = [
       "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 300,
     initial: 2,
+    amount: 0,
     stock: 5,
   },
   {
@@ -82,6 +89,7 @@ const DUMMY_DATA = [
       "https://images.pexels.com/photos/7543638/pexels-photo-7543638.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 300,
     initial: 2,
+    amount: 0,
     stock: 5,
   },
 ];

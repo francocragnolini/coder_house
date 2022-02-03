@@ -3,9 +3,13 @@ import NavBar from "./components/NavBar";
 import ItemDetailContainer from "./pages/ItemDetailContainer";
 import ItemListContainer from "./pages/ItemListContainer";
 import CartContainer from "./pages/CartContainer";
+import { CartContext } from "./context/CartContext";
 import "./App.css";
+import { useContext } from "react";
 
 function App() {
+  const cart = useContext(CartContext);
+  console.log(cart);
   return (
     <div className="App">
       <Router>

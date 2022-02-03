@@ -1,21 +1,31 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import ItemCount from "./ItemCount";
+
 import classes from "./ItemDetail.module.css";
 
 const ItemDetail = (props) => {
-  const [isShown, setIsShown] = useState(true);
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(null);
   const history = useHistory();
+
+  // cart context
 
   // handler takes the count state in itemCount component and save the value to quantity state
   const addQuantityHandler = (q) => {
     setQuantity(q);
   };
 
-  //
+  //WORKING WITH CONTEXT
   const addToCartHandler = (e) => {
     e.preventDefault();
+    props.onAdd({
+      id: props.id,
+      title: props.title,
+      image: props.image,
+      description: props.description,
+      price: props.price,
+      quantity: quantity,
+    });
     history.replace("/cart");
   };
 

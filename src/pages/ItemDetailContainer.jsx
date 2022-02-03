@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ItemDetail from "../components/ItemDetail";
 import classes from "./ItemDetailContainer.module.css";
+import { CartContext } from "../context/CartContext";
+import { useParams } from "react-router-dom";
 
 const DUMMY_ITEM = {
   id: "p1",
@@ -9,13 +11,19 @@ const DUMMY_ITEM = {
   image:
     "https://images.pexels.com/photos/4914807/pexels-photo-4914807.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   price: 200,
-  initial: 1,
+  initial: 0,
   stock: 5,
 };
 
 const ItemDetailContainer = () => {
+  const paramId = useParams().id;
+
+  const cartCtx = useContext(CartContext);
+
+  // the item object
   const [itemDetail, setItemDetail] = useState({});
 
+  // fetching the data
   useEffect(() => {
     const getItem = setTimeout(() => {
       setItemDetail(DUMMY_ITEM);
@@ -26,15 +34,19 @@ const ItemDetailContainer = () => {
 
   return (
     <div className={classes.container}>
+      {/* checking if it is an object and if is not empty */}
       {Object.keys(itemDetail).length !== 0 &&
         Object.getPrototypeOf(itemDetail) === Object.prototype && (
           <ItemDetail
+            id={paramId}
             description={DUMMY_ITEM.description}
             price={DUMMY_ITEM.price}
             title={DUMMY_ITEM.name}
             image={DUMMY_ITEM.image}
             initial={DUMMY_ITEM.initial}
             stock={DUMMY_ITEM.stock}
+            // passing the global function to bind the add-to-cart button
+            onAdd={cartCtx.addItem}
           />
         )}
     </div>
