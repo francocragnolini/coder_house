@@ -4,10 +4,12 @@ import classes from "./ItemDetailContainer.module.css";
 import { CartContext } from "../context/CartContext";
 import { useParams } from "react-router-dom";
 
+// this should be an array with the data then a have to filter the item by id from useParams
 const DUMMY_ITEM = {
   id: "p1",
   name: "Sneakers",
   description: "Best Sneakers in Town",
+  amount: 0,
   image:
     "https://images.pexels.com/photos/4914807/pexels-photo-4914807.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   price: 200,

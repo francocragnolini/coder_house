@@ -5,7 +5,7 @@ import ItemCount from "./ItemCount";
 import classes from "./ItemDetail.module.css";
 
 const ItemDetail = (props) => {
-  const [quantity, setQuantity] = useState(null);
+  const [quantity, setQuantity] = useState();
   const history = useHistory();
 
   // cart context
@@ -24,9 +24,9 @@ const ItemDetail = (props) => {
       image: props.image,
       description: props.description,
       price: props.price,
-      quantity: quantity,
+      amount: quantity,
     });
-    history.replace("/cart");
+    // history.replace("/cart");
   };
 
   return (

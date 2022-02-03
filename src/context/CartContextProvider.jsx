@@ -12,7 +12,7 @@ const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     // updates the total amount
     const updatedTotalAmount =
-      state.totalAmount + action.item.price * action.item.quantity;
+      state.totalAmount + action.item.price * action.item.amount;
 
     // checking for the item in the array it return an index
     const indexItem = state.items.findIndex(

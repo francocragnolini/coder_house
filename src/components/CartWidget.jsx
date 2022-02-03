@@ -5,10 +5,14 @@ import { useContext } from "react";
 
 const CartWidget = () => {
   const cartCtx = useContext(CartContext);
+
+  const numberOfItems = cartCtx.items.reduce((CurrentNumber, item) => {
+    return CurrentNumber + item.amount;
+  }, 0);
   return (
     <div className={classes.cart}>
       <AiOutlineShoppingCart />
-      <span>{cartCtx.items.length}</span>
+      <span>{numberOfItems}</span>
     </div>
   );
 };
