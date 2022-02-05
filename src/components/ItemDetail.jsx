@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import ItemCount from "./ItemCount";
-
+import Card from "../shared/UI/Card";
+import Button from "../shared/UI/Button";
 import classes from "./ItemDetail.module.css";
 
 const ItemDetail = (props) => {
@@ -33,8 +34,34 @@ const ItemDetail = (props) => {
     history.replace("/cart");
   };
 
+  // return (
+  //   <div className={classes.itemDetail}>
+  //     <div className={classes.image}>
+  //       <img src={props.image} alt={props.title} />
+  //     </div>
+  //     <div className={classes.info}>
+  //       <h2>{props.title}</h2>
+  //       <div>{props.description}</div>
+  //       <h3>${props.price}</h3>
+
+  //       <ItemCount
+  //         initial={props.initial}
+  //         stock={props.stock}
+  //         onGetAmount={getQuantityHandler}
+  //       />
+
+  //       <button
+  //         type="button"
+  //         className={classes.button}
+  //         onClick={addToCartHandler}
+  //       >
+  //         Agregar al Carrito
+  //       </button>
+  //     </div>
+  //   </div>
+  // );
   return (
-    <div className={classes.itemDetail}>
+    <Card className={classes.itemDetail}>
       <div className={classes.image}>
         <img src={props.image} alt={props.title} />
       </div>
@@ -49,15 +76,15 @@ const ItemDetail = (props) => {
           onGetAmount={getQuantityHandler}
         />
 
-        <button
+        <Button
           type="button"
           className={classes.button}
           onClick={addToCartHandler}
         >
           Agregar al Carrito
-        </button>
+        </Button>
       </div>
-    </div>
+    </Card>
   );
 };
 

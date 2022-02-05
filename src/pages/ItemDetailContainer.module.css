@@ -5,3 +5,15 @@
   background-color: #fff;
   border-radius: 5px;
 }
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1285px) {
+  .container {
+    width: 50%;
+  }
+}
