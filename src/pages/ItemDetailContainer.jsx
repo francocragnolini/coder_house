@@ -14,7 +14,7 @@ const DUMMY_ITEM = {
   image:
     "https://images.pexels.com/photos/4914807/pexels-photo-4914807.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   price: 200,
-  initial: 0,
+  initial: 1,
   stock: 5,
 };
 

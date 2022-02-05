@@ -11,7 +11,7 @@ const ItemDetail = (props) => {
   // cart context
   // handler takes the count state in itemCount component and save the value to quantity state
   // not working correctly
-  const addQuantityHandler = (q) => {
+  const getQuantityHandler = (q) => {
     console.log(q);
     setQuantity(q);
   };
@@ -46,7 +46,7 @@ const ItemDetail = (props) => {
         <ItemCount
           initial={props.initial}
           stock={props.stock}
-          onAdd={addQuantityHandler}
+          onGetAmount={getQuantityHandler}
         />
 
         <button
