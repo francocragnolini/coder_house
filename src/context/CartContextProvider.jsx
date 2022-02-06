@@ -9,6 +9,7 @@ const defaultCartState = {
 
 // REDUCER FUNCTION
 const cartReducer = (state, action) => {
+  // ADD AN ITEM TO ITEMS STATE
   if (action.type === "ADD") {
     // updates the total amount
     const updatedTotalAmount =
@@ -49,6 +50,8 @@ const cartReducer = (state, action) => {
       };
     }
   }
+
+  // REMOVE ITEM FROM ITEMS
   if (action.type === "REMOVE") {
     // find index by id
     const itemIndex = state.items.findIndex((item) => item.id === action.id);
@@ -73,11 +76,24 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
   }
+
+  //
   if (action.type === "CLEAR") {
-    return {
-      items: state.items,
-      totalAmount: state.totalAmount,
-    };
+    // find index by id
+    const itemIndex = state.items.findIndex((item) => item.id === action.id);
+
+    // get the  object or null
+    const item = state.items[itemIndex];
+    if (item) {
+      const updatedTotalAmount = state.totalAmount - item.price * item.amount;
+      const updatedItems = [...state.items].filter(
+        (item) => item.id !== action.id
+      );
+      return {
+        items: updatedItems,
+        totalAmount: updatedTotalAmount,
+      };
+    }
   }
   return defaultCartState;
 };
@@ -100,8 +116,8 @@ const CartContextProvider = (props) => {
     });
   };
 
-  const clearCartHandler = () => {
-    dispatch({ type: "CLEAR" });
+  const clearCartHandler = (id) => {
+    dispatch({ type: "CLEAR", id: id });
   };
 
   const cartContext = {

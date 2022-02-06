@@ -26,9 +26,9 @@ const CartListContainer = () => {
             <CartList cart={cartCtx.items} />
             <aside>
               <h2>My Shopping List</h2>
-              <div> Amount: {totalItems}</div>
-              <div>Total a Pagar: {cartCtx.totalAmount}</div>
-              <Button>Finalizar Compra</Button>
+              <div> Total Amount: {totalItems}</div>
+              <div>Total: {cartCtx.totalAmount}</div>
+              <Button>End Shopping</Button>
             </aside>
           </div>
         )}

@@ -1,19 +1,8 @@
 .itemCount {
   display: flex;
   align-items: center;
+  margin: 1rem 0;
 }
-.itemCount button {
-  width: 5rem;
-  height: 3rem;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background-color: #8a2b06;
-  color: #fff;
-  font-size: 3rem;
-  text-align: center;
-}
-
 .itemCount span {
   margin: 0 1rem;
   color: black;

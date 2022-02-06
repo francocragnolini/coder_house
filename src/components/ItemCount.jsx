@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import classes from "./ItemCount.module.css";
+import Button from "../shared/UI/Button";
 
 const ItemCount = (props) => {
-  //   setting the state of ItemCount
+  // Setting the state of ItemCount
   const [count, setCount] = useState(props.initial);
-  console.log(count);
 
-  // //  Handlers
+  // Handlers
   const countHandler = (operator) => {
     if (operator === "left" && count > props.initial) {
       // setCount((prevValue) => prevValue - 1);
@@ -22,21 +22,21 @@ const ItemCount = (props) => {
 
   return (
     <div className={classes.itemCount}>
-      <button
-        className={classes.btn}
+      <Button
         type="button"
+        className={classes.btn}
         onClick={() => countHandler("left")}
       >
         -
-      </button>
+      </Button>
       <span>{count}</span>
-      <button
+      <Button
         className={classes.btn}
         type="button"
         onClick={() => countHandler("right")}
       >
         +
-      </button>
+      </Button>
     </div>
   );
 };

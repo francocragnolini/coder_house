@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../shared/UI/Button";
+import { CartContext } from "../context/CartContext";
 import Card from "../shared/UI/Card";
 import "./CartItem.css";
 
 const CartItem = (props) => {
-  const { title, description, amount, price, image } = props.item;
+  const { clear } = useContext(CartContext);
+  const { title, description, amount, price, image, id } = props.item;
   console.log(amount);
+
+  // deletes an item in the cart-list
+  const deleteItemHandler = () => {
+    console.log(id);
+    clear(id);
+  };
   return (
     <li className="item">
       <Card className="item__content">
@@ -17,7 +25,7 @@ const CartItem = (props) => {
           <h3>Price: {price}</h3>
           <p>Description: {description}</p>
           <p> Amount:{amount}</p>
-          <Button>Delete Item</Button>
+          <Button onClick={deleteItemHandler}>Delete Item</Button>
         </div>
       </Card>
     </li>

@@ -13,7 +13,6 @@ const ItemDetail = (props) => {
   // handler takes the count state in itemCount component and save the value to quantity state
   // not working correctly
   const getQuantityHandler = (q) => {
-    console.log(q);
     setQuantity(q);
   };
 
@@ -34,32 +33,6 @@ const ItemDetail = (props) => {
     history.replace("/cart");
   };
 
-  // return (
-  //   <div className={classes.itemDetail}>
-  //     <div className={classes.image}>
-  //       <img src={props.image} alt={props.title} />
-  //     </div>
-  //     <div className={classes.info}>
-  //       <h2>{props.title}</h2>
-  //       <div>{props.description}</div>
-  //       <h3>${props.price}</h3>
-
-  //       <ItemCount
-  //         initial={props.initial}
-  //         stock={props.stock}
-  //         onGetAmount={getQuantityHandler}
-  //       />
-
-  //       <button
-  //         type="button"
-  //         className={classes.button}
-  //         onClick={addToCartHandler}
-  //       >
-  //         Agregar al Carrito
-  //       </button>
-  //     </div>
-  //   </div>
-  // );
   return (
     <Card className={classes.itemDetail}>
       <div className={classes.image}>
