@@ -14,12 +14,10 @@ const CartItem = (props) => {
         </div>
         <div className="item__info">
           <h2>{title}</h2>
-          <h3>{price}</h3>
-          <p>{description}</p>
-          <p>{amount}</p>
-        </div>
-        <div className="item__actions">
-          <Button>Delete</Button>
+          <h3>Price: {price}</h3>
+          <p>Description: {description}</p>
+          <p> Amount:{amount}</p>
+          <Button>Delete Item</Button>
         </div>
       </Card>
     </li>

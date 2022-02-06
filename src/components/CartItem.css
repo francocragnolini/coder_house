@@ -1,6 +1,7 @@
 .item {
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   list-style-type: none;
+  border-radius: ;
 }
 
 .item__content {
@@ -50,6 +51,9 @@
 }
 
 @media (min-width: 768px) {
+  .item__content {
+    display: flex;
+  }
   .item__image {
     height: 20rem;
   }

@@ -1,6 +1,6 @@
-.layout {
+/* .layout {
   display: grid;
-  grid-gap: 2rem 3rem;
+  grid-gap: 2rem;
   grid-template-columns: 1fr;
 }
 
@@ -19,4 +19,10 @@
   .layout {
     grid-template-columns: repeat(4, 1fr);
   }
+} */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }

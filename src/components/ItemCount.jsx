@@ -11,10 +11,12 @@ const ItemCount = (props) => {
     if (operator === "left" && count > props.initial) {
       // setCount((prevValue) => prevValue - 1);
       setCount(count - 1);
+      props.onGetAmount(count);
     }
     if (operator === "right" && count < props.stock) {
       // setCount((prevValue) => prevValue + 1);
       setCount(count + 1);
+      props.onGetAmount(count);
     }
   };
 

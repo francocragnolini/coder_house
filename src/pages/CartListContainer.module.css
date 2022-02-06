@@ -1,0 +1,24 @@
+.cart {
+  width: 100%;
+}
+
+.cart aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dotted black;
+}
+
+.cart button {
+  margin: 2rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .cart {
+    display: flex;
+  }
+  .cart .aside {
+    flex: 1;
+  }
+}
