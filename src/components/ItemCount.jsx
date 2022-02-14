@@ -9,14 +9,10 @@ const ItemCount = (props) => {
   // Handlers
   const countHandler = (operator) => {
     if (operator === "left" && count > props.initial) {
-      // setCount((prevValue) => prevValue - 1);
-      setCount(count - 1);
-      props.onGetAmount(count);
+      setCount((prevValue) => prevValue - 1);
     }
     if (operator === "right" && count < props.stock) {
-      // setCount((prevValue) => prevValue + 1);
-      setCount(count + 1);
-      props.onGetAmount(count);
+      setCount((prevValue) => prevValue + 1);
     }
   };
 
