@@ -7,11 +7,8 @@ import "./CartItem.css";
 const CartItem = (props) => {
   const { clear } = useContext(CartContext);
   const { title, description, amount, price, image, id } = props.item;
-  console.log(amount);
-
   // deletes an item in the cart-list
   const deleteItemHandler = () => {
-    console.log(id);
     clear(id);
   };
   return (

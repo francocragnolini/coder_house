@@ -20,6 +20,7 @@ const ItemDetail = (props) => {
   //pushes the item data  to cartCtx.items(array)
   const addToCartHandler = (e) => {
     e.preventDefault();
+
     props.onAdd({
       id: props.id,
       title: props.title,
@@ -30,6 +31,7 @@ const ItemDetail = (props) => {
       // not working
       amount: quantity,
     });
+
     history.replace("/cart");
   };
 
