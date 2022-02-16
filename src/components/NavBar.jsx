@@ -17,10 +17,10 @@ const NavBar = () => {
 
       <ul className={styles.list}>
         <li>
-          <NavLink to={`/category/categoryId`}>Clothes</NavLink>
+          <NavLink to={`/category/categoryId`}>Suits</NavLink>
         </li>
         <li>
-          <NavLink to={`/category/categoryId`}>Accessories</NavLink>
+          <NavLink to={`/category/categoryId`}>Shirts</NavLink>
         </li>
         <li>
           <NavLink to={`/category/categoryId`}>Shoes</NavLink>
