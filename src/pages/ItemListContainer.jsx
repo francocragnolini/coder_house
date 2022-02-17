@@ -9,7 +9,7 @@ const ItemListContainer = (props) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const getProducts = async () => {
       const query = collection(db, "items");
       const snapshot = await getDocs(query);
       const listItems = [];
@@ -19,7 +19,7 @@ const ItemListContainer = (props) => {
       });
       setProducts(listItems);
     };
-    fetchData();
+    getProducts();
   }, []);
 
   return (

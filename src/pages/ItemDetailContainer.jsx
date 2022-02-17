@@ -18,7 +18,6 @@ const ItemDetailContainer = () => {
     const fetchSingleProduct = async () => {
       const docRef = doc(db, "items", paramId);
       const docSnapshot = await getDoc(docRef);
-      console.log(docSnapshot.data());
       setItemDetail(docSnapshot.data());
     };
     fetchSingleProduct();
