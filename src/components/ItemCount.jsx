@@ -1,25 +1,17 @@
 import { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { useHistory } from "react-router-dom";
+
 import classes from "./ItemCount.module.css";
 import Button from "../shared/UI/Button";
-import { increment } from "firebase/firestore";
 
 const ItemCount = (props) => {
   // Setting the state of ItemCount
   const [count, setCount] = useState(0);
 
-  // Handlers
-  // const countHandler = (operator) => {
-  //   if (operator === "left" && count > 0) {
-  //     setCount((prevValue) => prevValue - 1);
-  //     props.onGetAmount(count);
-  //   }
-  //   if (operator === "right" && count < props.stock) {
-  //     setCount((prevValue) => prevValue + 1);
-  //     props.onGetAmount(count);
-  //   }
-  //   // props.onGetAmount(count);
-  //   console.log(count);
-  // };
+  const history = useHistory();
+
+  const cartCtx = useContext(CartContext);
 
   // Handlers
   const incrementHandler = () => {
@@ -28,6 +20,7 @@ const ItemCount = (props) => {
       props.onGetAmount(count);
     }
   };
+
   const decrementHandler = () => {
     if (count < props.stock) {
       setCount(count + 1);
@@ -35,24 +28,44 @@ const ItemCount = (props) => {
     }
   };
 
+  const addToCartHandler = (e) => {
+    e.preventDefault();
+    cartCtx.addItem({
+      id: props.id,
+      title: props.title,
+      image: props.image,
+      description: props.description,
+      price: props.price,
+      amount: count,
+    });
+    history.replace("/cart");
+  };
+
   return (
-    <div className={classes.itemCount}>
+    <div>
+      <div className={classes.itemCount}>
+        <Button
+          type="button"
+          className={classes.btn}
+          onClick={incrementHandler}
+        >
+          -
+        </Button>
+        <span>{count}</span>
+        <Button
+          className={classes.btn}
+          type="button"
+          onClick={decrementHandler}
+        >
+          +
+        </Button>
+      </div>
       <Button
+        onClick={addToCartHandler}
         type="button"
-        className={classes.btn}
-        // onClick={() => countHandler("left")}
-        onClick={incrementHandler}
+        className={classes.button}
       >
-        -
-      </Button>
-      <span>{count}</span>
-      <Button
-        className={classes.btn}
-        type="button"
-        // onClick={() => countHandler("right")}
-        onClick={decrementHandler}
-      >
-        +
+        Add to Cart
       </Button>
     </div>
   );
