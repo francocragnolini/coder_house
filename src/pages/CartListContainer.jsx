@@ -76,7 +76,7 @@ const CartListContainer = () => {
           <div className={classes.cart}>
             <div className={classes.cartCtn}>
               <CartList className={classes.cartList} cart={cartCtx.items} />
-              <aside>
+              <aside className={classes.aside}>
                 <div className={classes.cartInfo}>
                   <h2>My Shopping List</h2>
                   <h3> Total Amount: {totalItems}</h3>

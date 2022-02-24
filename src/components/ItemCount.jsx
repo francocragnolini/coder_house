@@ -7,7 +7,7 @@ import Button from "../shared/UI/Button";
 
 const ItemCount = (props) => {
   // Setting the state of ItemCount
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const history = useHistory();
 
@@ -15,7 +15,7 @@ const ItemCount = (props) => {
 
   // Handlers
   const incrementHandler = () => {
-    if (count > 0) {
+    if (count > 1) {
       setCount(count - 1);
     }
   };

@@ -13,10 +13,10 @@
   display: flex;
 }
 .cartList {
-  flex: 4;
+  flex: 2;
 }
 
-.cart aside {
+.aside {
   flex: 1;
   border: 1px dotted black;
   display: flex;
@@ -29,6 +29,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .actions {
