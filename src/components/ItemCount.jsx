@@ -17,19 +17,18 @@ const ItemCount = (props) => {
   const incrementHandler = () => {
     if (count > 0) {
       setCount(count - 1);
-      props.onGetAmount(count);
     }
   };
 
   const decrementHandler = () => {
     if (count < props.stock) {
       setCount(count + 1);
-      props.onGetAmount(count);
     }
   };
 
   const addToCartHandler = (e) => {
     e.preventDefault();
+
     cartCtx.addItem({
       id: props.id,
       title: props.title,
@@ -44,27 +43,15 @@ const ItemCount = (props) => {
   return (
     <div>
       <div className={classes.itemCount}>
-        <Button
-          type="button"
-          className={classes.btn}
-          onClick={incrementHandler}
-        >
+        <Button type="button" onClick={incrementHandler}>
           -
         </Button>
         <span>{count}</span>
-        <Button
-          className={classes.btn}
-          type="button"
-          onClick={decrementHandler}
-        >
+        <Button type="button" onClick={decrementHandler}>
           +
         </Button>
       </div>
-      <Button
-        onClick={addToCartHandler}
-        type="button"
-        className={classes.button}
-      >
+      <Button onClick={addToCartHandler} type="button">
         Add to Cart
       </Button>
     </div>

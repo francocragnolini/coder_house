@@ -23,6 +23,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
 .item__info h2,
@@ -55,74 +56,3 @@
     height: 20rem;
   }
 }
-
-/* .card {
-  width: 30rem;
-  border: 2px solid rgb(211, 211, 25);
-  background-color: #fff;
-}
-
-.card .image {
-  width: 100%;
-  height: 30rem;
-  padding: 2rem;
-}
-
-.image img {
-  border-radius: 1rem;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-}
-
-.info p {
-  text-align: center;
-  color: #fff;
-  font-size: 1.5rem;
-  background-color: grey;
-  width: 100%;
-  padding: 1rem;
-}
-.info h2 {
-  font-size: 2.5rem;
-  color: #3f3f3f;
-}
-
-.info button {
-  outline: none;
-  width: 90%;
-  height: 50px;
-  background-color: #3f3f3f;
-  color: #fff;
-  font-size: 2rem;
-  cursor: pointer;
-  margin: 1rem 0;
-}
-.info button:hover {
-  color: #fff;
-  background-color: #5f5c5c;
-}
-
-@media screen and (min-width: 425px) {
-  .card {
-    width: 30rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .card {
-    width: 30rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .card {
-    width: 30rem;
-  }
-} */

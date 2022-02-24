@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import CartList from "../components/CartList";
+import { useHistory } from "react-router-dom";
 import Fallback from "../shared/UI/Fallback";
 import classes from "./CartListContainer.module.css";
 import Button from "../shared/UI/Button";
@@ -9,13 +10,15 @@ import { addDoc, collection } from "firebase/firestore";
 
 const CartListContainer = () => {
   const cartCtx = useContext(CartContext);
-
+  const history = useHistory();
   // get
   const totalItems = cartCtx.items
     .map((item) => item.amount)
     .reduce((prevItem, item) => prevItem + item, 0);
 
   //handlers
+
+  // submits the order to the database
   const checkoutHandler = async (e) => {
     e.preventDefault();
 
@@ -53,6 +56,11 @@ const CartListContainer = () => {
       .catch((err) => console.log(err));
   };
 
+  // redirect to main page
+  const redirectHandler = () => {
+    history.push("/");
+  };
+
   return (
     <>
       {/* Fallback in case the Cart list is empty */}
@@ -66,14 +74,20 @@ const CartListContainer = () => {
         )}
         {cartCtx.items.length > 0 && (
           <div className={classes.cart}>
-            <CartList cart={cartCtx.items} />
-            <aside>
-              <h2>My Shopping List</h2>
-              <div> Total Amount: {totalItems}</div>
-              <div>Total: {cartCtx.totalAmount}</div>
-              <Button>Continue Shopping</Button>
-              <Button onClick={checkoutHandler}>Checkout</Button>
-            </aside>
+            <div className={classes.cartCtn}>
+              <CartList className={classes.cartList} cart={cartCtx.items} />
+              <aside>
+                <div className={classes.cartInfo}>
+                  <h2>My Shopping List</h2>
+                  <h3> Total Amount: {totalItems}</h3>
+                  <h2>Total: {cartCtx.totalAmount}</h2>
+                  <div className={classes.actions}>
+                    <Button onClick={redirectHandler}>Continue Shopping</Button>
+                    <Button onClick={checkoutHandler}>Checkout</Button>
+                  </div>
+                </div>
+              </aside>
+            </div>
           </div>
         )}
       </div>

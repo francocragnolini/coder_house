@@ -20,9 +20,10 @@ const CartItem = (props) => {
         <div className="item__info">
           <h2>{title}</h2>
           <h3>Price: {price}</h3>
-          <p>Description: {description}</p>
           <p> Amount:{amount}</p>
-          <Button onClick={deleteItemHandler}>Delete Item</Button>
+          <Button className="button" onClick={deleteItemHandler}>
+            Delete Item
+          </Button>
         </div>
       </Card>
     </li>
