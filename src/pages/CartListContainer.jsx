@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import CartList from "../components/CartList";
 import { useHistory } from "react-router-dom";
@@ -6,19 +6,30 @@ import Fallback from "../shared/UI/Fallback";
 import classes from "./CartListContainer.module.css";
 import Button from "../shared/UI/Button";
 import { db } from "../firebase";
-import { addDoc, collection } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  documentId,
+  getDocs,
+  query,
+  where,
+  writeBatch,
+} from "firebase/firestore";
 
 const CartListContainer = () => {
+  // states
+  const [orderId, setOrderId] = useState("");
   const cartCtx = useContext(CartContext);
+  console.log("cart", cartCtx.items);
   const history = useHistory();
-  // get
+
+  // get the total
   const totalItems = cartCtx.items
     .map((item) => item.amount)
     .reduce((prevItem, item) => prevItem + item, 0);
 
   //handlers
 
-  // submits the order to the database
   const checkoutHandler = async (e) => {
     e.preventDefault();
 
@@ -27,12 +38,14 @@ const CartListContainer = () => {
       console.log("no items in the cart were found");
       return;
     }
-    // modeling the data from cart
-    const orderItems = cartCtx.items.map((item) => {
+
+    // transforming the item data
+    const products = cartCtx.items.map((item) => {
       const updatedItem = {
         id: item.id,
         title: item.title,
         price: item.price,
+        quantity: item.amount,
       };
       return updatedItem;
     });
@@ -44,15 +57,38 @@ const CartListContainer = () => {
       phone: 325158858,
     };
 
-    const order = {
+    const newOrder = {
       buyer: buyer,
-      items: orderItems,
+      items: products,
       total: cartCtx.totalAmount,
     };
 
-    // adding the order to the collection orders fb db
-    addDoc(collection(db, "orders"), order)
+    addDoc(collection(db, "orders"), newOrder)
       .then((doc) => console.log(doc.id))
+      .catch((err) => console.log(err));
+
+    const batch = writeBatch(db);
+
+    // getting items from db (matches the cart items)
+    const itemsToUpdate = query(
+      collection(db, "items"),
+      where(
+        documentId(),
+        "in",
+        cartCtx.items.map((item) => item.id)
+      )
+    );
+    const snapshot = await getDocs(itemsToUpdate);
+    snapshot.docs.forEach((docSnapshot, idx) => {
+      batch.update(docSnapshot.ref, {
+        stock: docSnapshot.data().stock - products[idx].quantity,
+      });
+    });
+    batch
+      .commit()
+      .then(() => {
+        console.log("Well Done Items Updated");
+      })
       .catch((err) => console.log(err));
   };
 
