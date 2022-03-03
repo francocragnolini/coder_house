@@ -5,11 +5,11 @@ import Card from "../shared/UI/Card";
 import "./CartItem.css";
 
 const CartItem = (props) => {
-  const { clear } = useContext(CartContext);
-  const { title, description, amount, price, image, id } = props.item;
+  const { clearItem } = useContext(CartContext);
+  const { title, amount, price, image, id } = props.item;
   // deletes an item in the cart-list
   const deleteItemHandler = () => {
-    clear(id);
+    clearItem(id);
   };
   return (
     <li className="item">

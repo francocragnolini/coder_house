@@ -1,0 +1,14 @@
+.container {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.order {
+  width: 60%;
+  height: 60%;
+  color: white;
+  background-color: green;
+}

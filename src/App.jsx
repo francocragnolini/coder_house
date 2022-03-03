@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 import ItemDetailContainer from "./pages/ItemDetailContainer";
 import ItemListContainer from "./pages/ItemListContainer";
 import CartListContainer from "./pages/CartListContainer";
-import "./App.css";
+import CheckoutContainer from "./pages/CheckoutContainer";
 
 function App() {
   return (
@@ -22,6 +22,10 @@ function App() {
           </Route>
           <Route path="/cart">
             <CartListContainer />
+          </Route>
+          {/* check this route */}
+          <Route path="/checkout">
+            <CheckoutContainer />
           </Route>
         </Switch>
       </Router>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import CartList from "../components/CartList";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Fallback from "../shared/UI/Fallback";
 import classes from "./CartListContainer.module.css";
 import Button from "../shared/UI/Button";
@@ -18,9 +18,7 @@ import {
 
 const CartListContainer = () => {
   // states
-  const [orderId, setOrderId] = useState("");
   const cartCtx = useContext(CartContext);
-  console.log("cart", cartCtx.items);
   const history = useHistory();
 
   // get the total
@@ -30,72 +28,73 @@ const CartListContainer = () => {
 
   //handlers
 
-  const checkoutHandler = async (e) => {
-    e.preventDefault();
+  // const checkoutHandler = async (e) => {
+  //   e.preventDefault();
 
-    // checking the cart is not empty
-    if (cartCtx.length === 0) {
-      console.log("no items in the cart were found");
-      return;
-    }
+  //   // checking the cart is not empty
+  //   if (cartCtx.length === 0) {
+  //     console.log("no items in the cart were found");
+  //     return;
+  //   }
 
-    // transforming the item data
-    const products = cartCtx.items.map((item) => {
-      const updatedItem = {
-        id: item.id,
-        title: item.title,
-        price: item.price,
-        quantity: item.amount,
-      };
-      return updatedItem;
-    });
+  //   // transforming the item data
+  //   const products = cartCtx.items.map((item) => {
+  //     const updatedItem = {
+  //       id: item.id,
+  //       title: item.title,
+  //       price: item.price,
+  //       quantity: item.amount,
+  //     };
+  //     return updatedItem;
+  //   });
 
-    // modeling the data
-    const buyer = {
-      name: "franco",
-      email: "franco@gmail.com",
-      phone: 325158858,
-    };
+  //   // modeling the data
+  //   const buyer = {
+  //     name: "franco",
+  //     email: "franco@gmail.com",
+  //     phone: 325158858,
+  //   };
 
-    const newOrder = {
-      buyer: buyer,
-      items: products,
-      total: cartCtx.totalAmount,
-    };
+  //   const newOrder = {
+  //     buyer: buyer,
+  //     items: products,
+  //     total: cartCtx.totalAmount,
+  //   };
 
-    addDoc(collection(db, "orders"), newOrder)
-      .then((doc) => console.log(doc.id))
-      .catch((err) => console.log(err));
+  //   // add the order to db
+  //   addDoc(collection(db, "orders"), newOrder)
+  //     .then((doc) => {
+  //       console.log(doc);
+  //     })
+  //     .catch((err) => console.log(err));
 
-    const batch = writeBatch(db);
+  //   const batch = writeBatch(db);
 
-    // getting items from db (matches the cart items)
-    const itemsToUpdate = query(
-      collection(db, "items"),
-      where(
-        documentId(),
-        "in",
-        cartCtx.items.map((item) => item.id)
-      )
-    );
-    const snapshot = await getDocs(itemsToUpdate);
-    snapshot.docs.forEach((docSnapshot, idx) => {
-      batch.update(docSnapshot.ref, {
-        stock: docSnapshot.data().stock - products[idx].quantity,
-      });
-    });
-    batch
-      .commit()
-      .then(() => {
-        console.log("Well Done Items Updated");
-      })
-      .catch((err) => console.log(err));
-  };
-
-  // redirect to main page
-  const redirectHandler = () => {
-    history.push("/");
-  };
+  //   // getting items from db (matches the cart items)
+  //   const itemsToUpdate = query(
+  //     collection(db, "items"),
+  //     where(
+  //       documentId(),
+  //       "in",
+  //       cartCtx.items.map((item) => item.id)
+  //     )
+  //   );
+  //   // updating the stock
+  //   const snapshot = await getDocs(itemsToUpdate);
+  //   snapshot.docs.forEach((docSnapshot, idx) => {
+  //     batch.update(docSnapshot.ref, {
+  //       stock: docSnapshot.data().stock - products[idx].quantity,
+  //     });
+  //   });
+  //   batch
+  //     .commit()
+  //     .then(() => {
+  //       console.log("Well Done Items Updated");
+  //       cartCtx.clearCart();
+  //       history.push(`/order/${orderID}`);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <>
@@ -118,8 +117,12 @@ const CartListContainer = () => {
                   <h3> Total Amount: {totalItems}</h3>
                   <h2>Total: {cartCtx.totalAmount}</h2>
                   <div className={classes.actions}>
-                    <Button onClick={redirectHandler}>Continue Shopping</Button>
-                    <Button onClick={checkoutHandler}>Checkout</Button>
+                    <Button>
+                      <Link to="/checkout">Checkout</Link>
+                    </Button>
+                    <Button>
+                      <Link to="/">Continue Shopping</Link>
+                    </Button>
                   </div>
                 </div>
               </aside>
