@@ -1,5 +1,8 @@
 import Form from "../components/Form";
+import { useHistory } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import Card from "../shared/UI/Card";
+import Button from "../shared/UI/Button";
 import { db } from "../firebase";
 import {
   addDoc,
@@ -15,7 +18,7 @@ import { useContext, useState } from "react";
 
 const CheckoutContainer = () => {
   const cartCtx = useContext(CartContext);
-
+  const history = useHistory();
   const [showOrder, setShowOrder] = useState(false);
   const [orderId, setOrderId] = useState(null);
 
@@ -79,6 +82,10 @@ const CheckoutContainer = () => {
       .catch((err) => console.log(err));
   };
 
+  const mainPageHandler = () => {
+    history.push("/");
+  };
+
   return (
     <div className={classes.container}>
       {!showOrder && (
@@ -89,10 +96,14 @@ const CheckoutContainer = () => {
         </>
       )}
       {showOrder && (
-        <div className={classes.order}>
+        <Card className={classes.order}>
           <h2>Your Order Has Been Created</h2>
-          <h3>Your Order: {orderId}</h3>
-        </div>
+          <h4>Id:{orderId}</h4>
+          <p>Thank You For Your Purchase. Your Products Will Arrive Soon</p>
+          <Button onClick={mainPageHandler} className={classes.orderBtn}>
+            Go to Main Page
+          </Button>
+        </Card>
       )}
     </div>
   );

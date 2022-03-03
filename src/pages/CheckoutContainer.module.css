@@ -7,8 +7,13 @@
 }
 
 .order {
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 100%;
+  padding: 7rem;
   color: white;
   background-color: green;
+}
+.orderBtn {
+  background-color: brown;
+  border-color: brown;
 }
