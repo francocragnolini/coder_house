@@ -33,7 +33,7 @@ Se abre una pestaña del navegador en el puerto 3000:
 Recordar que tiene un backend realizado con Firebase, por si quieren descargar y correr este proyecto, tienen que generar su backend en firebase sino local con data fake.
 En el archivo `.env.example` estan las variables que deben ir para poder llenarlas con sus datos de Firebase.
 
-![e-commerce app]()
+![e-commerce app](src\demo\e-commerce.gif)
 
 # Getting Started with Create React App
 
